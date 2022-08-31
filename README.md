@@ -1,3 +1,5 @@
-# Patient Health Database 
+# Patient Health Database
 
 Author: Natalie S
+
+## Purpose 
