@@ -1,1 +1,3 @@
-# BME547_Assignments_Fall2022
+# Patient Health Database 
+
+Author: Natalie S
