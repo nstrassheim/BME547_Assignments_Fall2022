@@ -1,0 +1,35 @@
+#Git Workflow in Class Exercise
+def interface():
+    print("My Program")
+    print("Options:")
+    print("1 - Analyse HDL")
+    print("9 - Quit")
+    keep_running = True
+    while keep_running:
+            choice = input("Enter choice: ")
+            if choice == "9":
+                return
+            elif choice == "1":
+                HDL_driver()
+
+def input_HDL():
+    HDL_input = input("Enter the HDL value")
+    return int(HDL_input)
+
+def check_HDL():
+    if HDL_value >= 60:
+        return "Normal"
+    elif 40<= HDL_value <60:
+        return "Borderline Low"
+    else:
+        return "low"
+
+def HDL_driver():
+    HDL_value = input_HDL()
+    answer = check_HDL(HDL_value)
+    output_HDL_result(HDL_value, answer)
+
+def output_HDL_result(HDL_value, charac):
+    print("The results for an HDL balue of {} is {}".format(HDL_value, charac))
+
+interface()
