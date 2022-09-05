@@ -1,0 +1,61 @@
+#Git Workflow in Class Exercise
+def interface():
+    print("My Program")
+    print("Options:")
+    print("1 - Analyse HDL")
+    print("2 - Analyse LDL")
+    print("9 - Quit")
+    keep_running = True
+    while keep_running:
+            choice = input("Enter choice: ")
+            if choice == "9":
+                return
+            elif choice == "1":
+                HDL_driver()
+            elif choice == "2":
+                LDL_driver()
+
+def input_HDL():
+    HDL_input = input("Enter the HDL value ")
+    return int(HDL_input)
+
+def check_HDL(HDL_value):
+    if HDL_value >= 60:
+        return "Normal"
+    elif 40<= HDL_value <60:
+        return "Borderline Low"
+    else:
+        return "low"
+
+def HDL_driver():
+    HDL_value = input_HDL()
+    answer = check_HDL(HDL_value)
+    output_HDL_result(HDL_value, answer)
+
+def output_HDL_result(HDL_value, charac):
+    print("The results for an HDL value of {} is {}".format(HDL_value, charac))
+
+
+def input_LDL(): 
+    LDL_input = input("Enter the HDL value")
+    return int(LDL_input)
+
+def check_LDL(LDL_value): 
+    if LDL_value < 130: 
+        return "Normal"
+    elif 130 <= LDL_value <= 159:
+        return "Borderline High"
+    elif 160 <= LDL_value <= 189: 
+        return "High"
+    else:
+        return "Very High"
+
+def LDL_driver():
+    LDL_value = input_LDL()
+    answer = check_LDL(LDL_value)
+    output_LDL_result(LDL_value, answer)
+
+def output_LDL_result(LDL_value, charac):
+    print("The results for an LDL value of {} is {}".format(LDL_value, charac))
+
+interface()
