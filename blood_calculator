@@ -13,10 +13,10 @@ def interface():
                 HDL_driver()
 
 def input_HDL():
-    HDL_input = input("Enter the HDL value")
+    HDL_input = input("Enter the HDL value ")
     return int(HDL_input)
 
-def check_HDL():
+def check_HDL(HDL_value):
     if HDL_value >= 60:
         return "Normal"
     elif 40<= HDL_value <60:
@@ -30,6 +30,6 @@ def HDL_driver():
     output_HDL_result(HDL_value, answer)
 
 def output_HDL_result(HDL_value, charac):
-    print("The results for an HDL balue of {} is {}".format(HDL_value, charac))
+    print("The results for an HDL value of {} is {}".format(HDL_value, charac))
 
 interface()
