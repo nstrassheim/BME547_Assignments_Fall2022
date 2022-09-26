@@ -10,35 +10,60 @@ def create_patient_dictionary(patient_first_name, patient_last_name, patient_Id,
                       "Tests": []}
     return new_patient
 
+#using dictionary but still storing as a list 
+# def main(): 
+#     db = []
+#     db.append(create_patient_dictionary("Ann", "Ables", 1, 30))
+#     db.append(create_patient_dictionary("Bob", "Boyles", 2, 34))
+#     db.append(create_patient_dictionary("Chris", "Chou", 3, 25))
+#     print_database(db)
+#     add_test_to_patient(db, 3, "HDL", 100)
+#     print_database(db) 
+#     print("Patient {} is a {}".format(get_full_name(db[2]),
+#                                       adult_or_minor(db[2])))
 
+#using all as dictionary formatt
 def main(): 
-    db = []
-    db.append(create_patient_dictionary("Ann", "Ables", 1, 30))
-    db.append(create_patient_dictionary("Bob", "Boyles", 2, 34))
-    db.append(create_patient_dictionary("Chris", "Chou", 3, 25))
+    db = {}
+    db[11] = create_patient_dictionary("Ann", "Ables", 11, 30)
+    db[22] = create_patient_dictionary("Bob", "Boyles", 22, 34)
+    db[3] = create_patient_dictionary("Chris", "Chou", 3, 25)
     print_database(db)
     add_test_to_patient(db, 3, "HDL", 100)
     print_database(db) 
-    print("Patient {} is a {}".format(get_full_name(db[2]),
-                                      adult_or_minor(db[2])))
+    # print("Patient {} is a {}".format(get_full_name(db[2]),
+                                    #   adult_or_minor(db[2])))
+
 
 def print_database(db):
-    for patient in db:
-        print("Name: {}, id: {}, age: {}".format(get_full_name(patient), 
-                                                 patient["Id"], 
-                                                 patient["Age"]))
+    for patient_key in db:
+        print(patient_key)
+        print("Name: {}, id: {}, age: {}".format(get_full_name(db[patient_key]), 
+                                                 db[patient_key]["Id"], 
+                                                 db[patient_key]["Age"]))
+
+
+# def print_database(db):
+    # for patient in db:
+#         print("Name: {}, id: {}, age: {}".format(get_full_name(patient), 
+#                                                  patient["Id"], 
+#                                                  patient["Age"]))
 
 
 def get_full_name(patient):
     full_name = "{} {}".format(patient["First Name"], patient["Last Name"])
     return full_name 
 
-
 def find_patient(db, id_no):
-    for patient in db: 
-        if patient["Id"] == id_no:
-            return patient 
-    return False 
+    patient = db[id_no]
+    return patient 
+
+
+# def find_patient(db, id_no):
+#     for patient in db: 
+#         if patient["Id"] == id_no:
+#             return patient 
+#     return False 
 
 
 def add_test_to_patient(db, id_no, test_name, test_value): 
@@ -46,11 +71,12 @@ def add_test_to_patient(db, id_no, test_name, test_value):
     patient["Tests"].append((test_name, test_value))
 
 
-def adult_or_minor(patient):
-    if patient["Age"] >= 18:
-        return "adult"
-    else: 
-        return "minor"
+# def adult_or_minor(patient):
+#     if patient["Age"] >= 18:
+#         return "adult"
+#     else: 
+#         return "minor"
+
 # def patient_lookup(db, patient_id):
 #     for patient in db: 
 #         if patient[1] == patient_id:
